@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SapereKindle", "SapereKindle\SapereKindle.csproj", "{1614857B-1563-4851-8C32-4F14DD2CA029}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1614857B-1563-4851-8C32-4F14DD2CA029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1614857B-1563-4851-8C32-4F14DD2CA029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1614857B-1563-4851-8C32-4F14DD2CA029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1614857B-1563-4851-8C32-4F14DD2CA029}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {402E4FE5-A3E5-4218-B305-59BB88E86521}
+	EndGlobalSection
+EndGlobal
