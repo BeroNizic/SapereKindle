@@ -78,8 +78,12 @@ namespace SapereKindle.Dictionary
             return -1;
         }
 
-        public async Task<int> ImportAsync(string kindleMateFile, TranslationDictionaryFile dictFile)
+        public async Task<TranslationDictionary> ReadKindleMateExportedDictionaryAsync(string kindleMateFile)
         {
+            var dict = new TranslationDictionary
+            {
+                Translations = new List<TranslationItem>()
+            };
             var content = File.ReadAllLines(kindleMateFile);
             bool isWord = true;
             var word = "";
@@ -94,19 +98,19 @@ namespace SapereKindle.Dictionary
                     word = "";
                     if (emptyLineNum % 2 == 0)
                     {
-                        var index = ExistsTranslationItem(dictFile.Dictionary, translationItem.Word.Text);
+                        var index = ExistsTranslationItem(dict, translationItem.Word.Text);
                         if (index == -1)
-                            dictFile.Dictionary.Translations.Add(translationItem);
+                            dict.Translations.Add(translationItem);
                         else
                         {
-                            if (dictFile.Dictionary.Translations[index].Sentence.Text != translationItem.Sentence.Text)                            
-                                dictFile.Dictionary.Translations[index] = translationItem;                            
+                            if (dict.Translations[index].Sentence.Text != translationItem.Sentence.Text)
+                                dict.Translations[index].Sentence.Text += translationItem.Sentence.Text;
                         }
 
                         isWord = true;
                     }
                     continue;
-                }                    
+                }
                 if (isWord)
                 {
                     var startWord = line.IndexOf("(") + 1;
@@ -129,17 +133,35 @@ namespace SapereKindle.Dictionary
                 {
                     if (!string.IsNullOrWhiteSpace(translationItem.Sentence.Text))
                         translationItem.Sentence.Text += Environment.NewLine;
-                    translationItem.Sentence.Text += line.Trim();                    
+                    translationItem.Sentence.Text += line.Trim();
                     word = "";
                 }
             }
+            return dict;
+        }
 
+        public async Task<int> ImportAsync(string kindleMateFile, TranslationDictionaryFile dictFile)
+        {                        
             var translationService = new TranslationService();
             
             var fromLang = dictFile.Dictionary.FromLang;
             var toLang = dictFile.Dictionary.ToLang;
-
+            var kindleMateDict = await ReadKindleMateExportedDictionaryAsync(kindleMateFile);
             int changed = 0;
+            foreach(var item in kindleMateDict.Translations)
+            {
+                var index = ExistsTranslationItem(dictFile.Dictionary, item.Word.Text);
+                if (index == -1)
+                    dictFile.Dictionary.Translations.Add(item);
+                else {
+                    if (!dictFile.Dictionary.Translations[index].Sentence.Text.Equals(item.Sentence.Text)) {
+                        dictFile.Dictionary.Translations[index].Sentence = item.Sentence;
+                        dictFile.Dictionary.Translations[index].Sentence.AzureText = null;
+                        dictFile.Dictionary.Translations[index].Sentence.GoogleText = null;
+                    }
+                }
+            }
+
             foreach (var item in dictFile.Dictionary.Translations)
             {
                 bool changedWord = false;
