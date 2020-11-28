@@ -38,6 +38,9 @@ namespace SapereKindle
             cmbxDictionaries.SelectedIndex = 0;
             cmbxReviewDictionary.DataSource = dictionaries;
             cmbxReviewDictionary.SelectedIndex = 0;
+            for (int i = 0; i < 10; i++)
+                GetNextReviewItem();
+            _currentReviewIndex = 0;
             RefreshReviewPosition();
         }
 
@@ -74,15 +77,20 @@ namespace SapereKindle
             ClearReviewTranslation();
         }
 
-        private void btnReviewNew_Click(object sender, EventArgs e)
+        private void GetNextReviewItem()
         {
             var currentDictFile = (TranslationDictionaryFile)cmbxReviewDictionary.SelectedValue;
             var dict = currentDictFile.Dictionary;
             var itemIndex = _random.Next(0, dict.Translations.Count);
             var reviewItem = dict.Translations[itemIndex];
             _reviewItems.Add(reviewItem);
-            _currentReviewIndex = _reviewItems.Count - 1;           
-            RefreshReviewPosition();            
+            _currentReviewIndex = _reviewItems.Count - 1;
+            RefreshReviewPosition();
+        }
+
+        private void btnReviewNew_Click(object sender, EventArgs e)
+        {
+            GetNextReviewItem();    
         }
 
         private void ClearReviewTranslation()
