@@ -42,9 +42,33 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageTranslate = new System.Windows.Forms.TabPage();
             this.tabPageReview = new System.Windows.Forms.TabPage();
+            this.lReviewPosition = new System.Windows.Forms.Label();
+            this.btnReviewNext = new System.Windows.Forms.Button();
+            this.btnReviewPrevious = new System.Windows.Forms.Button();
+            this.btnReviewRepeat = new System.Windows.Forms.Button();
+            this.tbReviewSentence = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbReviewTranslationSentenceAzure = new System.Windows.Forms.TextBox();
+            this.tbReviewTranslationSentenceGoogle = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbReviewTranslationWordAzure = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbReviewTranslationWordGoogle = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnReviewTranslate = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbReviewWord = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReviewNew = new System.Windows.Forms.Button();
+            this.cmbxReviewDictionary = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageImport.SuspendLayout();
             this.tabPageTranslate.SuspendLayout();
+            this.tabPageReview.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTranslate
@@ -115,8 +139,9 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(833, 472);
+            this.tabControl1.Size = new System.Drawing.Size(932, 554);
             this.tabControl1.TabIndex = 7;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageImport
             // 
@@ -128,8 +153,8 @@
             this.tabPageImport.Controls.Add(this.btnSetKindleMateFile);
             this.tabPageImport.Location = new System.Drawing.Point(4, 24);
             this.tabPageImport.Name = "tabPageImport";
-            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPageImport.Size = new System.Drawing.Size(825, 444);
+            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImport.Size = new System.Drawing.Size(924, 526);
             this.tabPageImport.TabIndex = 0;
             this.tabPageImport.Text = "Import";
             this.tabPageImport.UseVisualStyleBackColor = true;
@@ -169,35 +194,271 @@
             this.tabPageTranslate.Controls.Add(this.tbOutput2);
             this.tabPageTranslate.Location = new System.Drawing.Point(4, 24);
             this.tabPageTranslate.Name = "tabPageTranslate";
-            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPageTranslate.Size = new System.Drawing.Size(825, 444);
+            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTranslate.Size = new System.Drawing.Size(924, 526);
             this.tabPageTranslate.TabIndex = 1;
             this.tabPageTranslate.Text = "Translate";
             this.tabPageTranslate.UseVisualStyleBackColor = true;
             // 
             // tabPageReview
             // 
+            this.tabPageReview.Controls.Add(this.lReviewPosition);
+            this.tabPageReview.Controls.Add(this.btnReviewNext);
+            this.tabPageReview.Controls.Add(this.btnReviewPrevious);
+            this.tabPageReview.Controls.Add(this.btnReviewRepeat);
+            this.tabPageReview.Controls.Add(this.tbReviewSentence);
+            this.tabPageReview.Controls.Add(this.groupBox1);
+            this.tabPageReview.Controls.Add(this.label6);
+            this.tabPageReview.Controls.Add(this.btnReviewTranslate);
+            this.tabPageReview.Controls.Add(this.label5);
+            this.tabPageReview.Controls.Add(this.tbReviewWord);
+            this.tabPageReview.Controls.Add(this.label4);
+            this.tabPageReview.Controls.Add(this.btnReviewNew);
+            this.tabPageReview.Controls.Add(this.cmbxReviewDictionary);
+            this.tabPageReview.Controls.Add(this.label3);
             this.tabPageReview.Location = new System.Drawing.Point(4, 24);
             this.tabPageReview.Name = "tabPageReview";
-            this.tabPageReview.Size = new System.Drawing.Size(825, 444);
+            this.tabPageReview.Size = new System.Drawing.Size(924, 526);
             this.tabPageReview.TabIndex = 2;
             this.tabPageReview.Text = "Review";
             this.tabPageReview.UseVisualStyleBackColor = true;
+            // 
+            // lReviewPosition
+            // 
+            this.lReviewPosition.AutoSize = true;
+            this.lReviewPosition.Location = new System.Drawing.Point(829, 13);
+            this.lReviewPosition.Name = "lReviewPosition";
+            this.lReviewPosition.Size = new System.Drawing.Size(24, 15);
+            this.lReviewPosition.TabIndex = 14;
+            this.lReviewPosition.Text = "0/0";
+            // 
+            // btnReviewNext
+            // 
+            this.btnReviewNext.Location = new System.Drawing.Point(867, 9);
+            this.btnReviewNext.Name = "btnReviewNext";
+            this.btnReviewNext.Size = new System.Drawing.Size(29, 23);
+            this.btnReviewNext.TabIndex = 13;
+            this.btnReviewNext.Text = ">";
+            this.btnReviewNext.UseVisualStyleBackColor = true;
+            this.btnReviewNext.Click += new System.EventHandler(this.btnReviewNext_Click);
+            // 
+            // btnReviewPrevious
+            // 
+            this.btnReviewPrevious.Location = new System.Drawing.Point(788, 9);
+            this.btnReviewPrevious.Name = "btnReviewPrevious";
+            this.btnReviewPrevious.Size = new System.Drawing.Size(27, 23);
+            this.btnReviewPrevious.TabIndex = 12;
+            this.btnReviewPrevious.Text = "<";
+            this.btnReviewPrevious.UseVisualStyleBackColor = true;
+            this.btnReviewPrevious.Click += new System.EventHandler(this.btnReviewPrevious_Click);
+            // 
+            // btnReviewRepeat
+            // 
+            this.btnReviewRepeat.Location = new System.Drawing.Point(309, 185);
+            this.btnReviewRepeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReviewRepeat.Name = "btnReviewRepeat";
+            this.btnReviewRepeat.Size = new System.Drawing.Size(82, 22);
+            this.btnReviewRepeat.TabIndex = 11;
+            this.btnReviewRepeat.Text = "Repeat";
+            this.btnReviewRepeat.UseVisualStyleBackColor = true;
+            this.btnReviewRepeat.Click += new System.EventHandler(this.btnReviewRepeat_Click);
+            // 
+            // tbReviewSentence
+            // 
+            this.tbReviewSentence.Location = new System.Drawing.Point(14, 58);
+            this.tbReviewSentence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewSentence.Multiline = true;
+            this.tbReviewSentence.Name = "tbReviewSentence";
+            this.tbReviewSentence.Size = new System.Drawing.Size(882, 94);
+            this.tbReviewSentence.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.tbReviewTranslationSentenceAzure);
+            this.groupBox1.Controls.Add(this.tbReviewTranslationSentenceGoogle);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.tbReviewTranslationWordAzure);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.tbReviewTranslationWordGoogle);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(3, 212);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(904, 306);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Translation";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 178);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 15);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Azure Sentence:";
+            // 
+            // tbReviewTranslationSentenceAzure
+            // 
+            this.tbReviewTranslationSentenceAzure.Location = new System.Drawing.Point(14, 197);
+            this.tbReviewTranslationSentenceAzure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewTranslationSentenceAzure.Multiline = true;
+            this.tbReviewTranslationSentenceAzure.Name = "tbReviewTranslationSentenceAzure";
+            this.tbReviewTranslationSentenceAzure.Size = new System.Drawing.Size(882, 94);
+            this.tbReviewTranslationSentenceAzure.TabIndex = 12;
+            this.tbReviewTranslationSentenceAzure.TextChanged += new System.EventHandler(this.tbReviewTranslationSentenceAzure_TextChanged);
+            // 
+            // tbReviewTranslationSentenceGoogle
+            // 
+            this.tbReviewTranslationSentenceGoogle.Location = new System.Drawing.Point(14, 74);
+            this.tbReviewTranslationSentenceGoogle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewTranslationSentenceGoogle.Multiline = true;
+            this.tbReviewTranslationSentenceGoogle.Name = "tbReviewTranslationSentenceGoogle";
+            this.tbReviewTranslationSentenceGoogle.Size = new System.Drawing.Size(882, 94);
+            this.tbReviewTranslationSentenceGoogle.TabIndex = 11;
+            this.tbReviewTranslationSentenceGoogle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 15);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Google sentence:";
+            // 
+            // tbReviewTranslationWordAzure
+            // 
+            this.tbReviewTranslationWordAzure.Location = new System.Drawing.Point(460, 26);
+            this.tbReviewTranslationWordAzure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewTranslationWordAzure.Name = "tbReviewTranslationWordAzure";
+            this.tbReviewTranslationWordAzure.Size = new System.Drawing.Size(264, 23);
+            this.tbReviewTranslationWordAzure.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(376, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 15);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Azure Word:";
+            // 
+            // tbReviewTranslationWordGoogle
+            // 
+            this.tbReviewTranslationWordGoogle.Location = new System.Drawing.Point(102, 28);
+            this.tbReviewTranslationWordGoogle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewTranslationWordGoogle.Name = "tbReviewTranslationWordGoogle";
+            this.tbReviewTranslationWordGoogle.Size = new System.Drawing.Size(190, 23);
+            this.tbReviewTranslationWordGoogle.TabIndex = 1;
+            this.tbReviewTranslationWordGoogle.TextChanged += new System.EventHandler(this.tbReviewTranslationWordGoogle_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Google Word:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 15);
+            this.label6.TabIndex = 8;
+            // 
+            // btnReviewTranslate
+            // 
+            this.btnReviewTranslate.Location = new System.Drawing.Point(407, 185);
+            this.btnReviewTranslate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReviewTranslate.Name = "btnReviewTranslate";
+            this.btnReviewTranslate.Size = new System.Drawing.Size(82, 22);
+            this.btnReviewTranslate.TabIndex = 7;
+            this.btnReviewTranslate.Text = "Translate";
+            this.btnReviewTranslate.UseVisualStyleBackColor = true;
+            this.btnReviewTranslate.Click += new System.EventHandler(this.btnReviewTranslate_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 15);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Sentence:";
+            // 
+            // tbReviewWord
+            // 
+            this.tbReviewWord.Location = new System.Drawing.Point(512, 9);
+            this.tbReviewWord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbReviewWord.Name = "tbReviewWord";
+            this.tbReviewWord.Size = new System.Drawing.Size(212, 23);
+            this.tbReviewWord.TabIndex = 4;
+            this.tbReviewWord.TextChanged += new System.EventHandler(this.tbReviewWord_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(464, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Word:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnReviewNew
+            // 
+            this.btnReviewNew.Location = new System.Drawing.Point(729, 8);
+            this.btnReviewNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReviewNew.Name = "btnReviewNew";
+            this.btnReviewNew.Size = new System.Drawing.Size(52, 22);
+            this.btnReviewNew.TabIndex = 2;
+            this.btnReviewNew.Text = "New";
+            this.btnReviewNew.UseVisualStyleBackColor = true;
+            this.btnReviewNew.Click += new System.EventHandler(this.btnReviewNew_Click);
+            // 
+            // cmbxReviewDictionary
+            // 
+            this.cmbxReviewDictionary.FormattingEnabled = true;
+            this.cmbxReviewDictionary.Location = new System.Drawing.Point(86, 9);
+            this.cmbxReviewDictionary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbxReviewDictionary.Name = "cmbxReviewDictionary";
+            this.cmbxReviewDictionary.Size = new System.Drawing.Size(373, 23);
+            this.cmbxReviewDictionary.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Dictionary:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 506);
+            this.ClientSize = new System.Drawing.Size(955, 576);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SapereKindle";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageImport.ResumeLayout(false);
             this.tabPageImport.PerformLayout();
             this.tabPageTranslate.ResumeLayout(false);
             this.tabPageTranslate.PerformLayout();
+            this.tabPageReview.ResumeLayout(false);
+            this.tabPageReview.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -218,6 +479,28 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbxDictionaries;
+        private System.Windows.Forms.Button btnReviewNew;
+        private System.Windows.Forms.ComboBox cmbxReviewDictionary;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox tbReviewTranslationWordGoogle;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnReviewTranslate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbReviewWord;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbReviewTranslationWordAzure;
+        private System.Windows.Forms.TextBox tbReviewSentence;
+        private System.Windows.Forms.TextBox tbReviewTranslationSentenceGoogle;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbReviewTranslationSentenceAzure;
+        private System.Windows.Forms.Button btnReviewRepeat;
+        private System.Windows.Forms.Label lReviewPosition;
+        private System.Windows.Forms.Button btnReviewNext;
+        private System.Windows.Forms.Button btnReviewPrevious;
     }
 }
 
