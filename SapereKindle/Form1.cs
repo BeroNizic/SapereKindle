@@ -161,5 +161,17 @@ namespace SapereKindle
             _currentReviewIndex++;
             RefreshReviewPosition();
         }
+
+        private void btnGetSynonymsAndAntonyms_Click(object sender, EventArgs e)
+        {
+            var sa = SynonymsAntonymsUtil.GetAsync(tbReviewWord.Text).GetAwaiter().GetResult();
+            var saForm = new FormSynonymsAntonyms(sa);
+            saForm.ShowDialog();
+        }
+
+        private void tabPageReview_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

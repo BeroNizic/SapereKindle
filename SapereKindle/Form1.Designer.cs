@@ -64,6 +64,7 @@
             this.btnReviewNew = new System.Windows.Forms.Button();
             this.cmbxReviewDictionary = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGetSynonymsAndAntonyms = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageImport.SuspendLayout();
             this.tabPageTranslate.SuspendLayout();
@@ -202,6 +203,7 @@
             // 
             // tabPageReview
             // 
+            this.tabPageReview.Controls.Add(this.btnGetSynonymsAndAntonyms);
             this.tabPageReview.Controls.Add(this.lReviewPosition);
             this.tabPageReview.Controls.Add(this.btnReviewNext);
             this.tabPageReview.Controls.Add(this.btnReviewPrevious);
@@ -222,6 +224,7 @@
             this.tabPageReview.TabIndex = 2;
             this.tabPageReview.Text = "Review";
             this.tabPageReview.UseVisualStyleBackColor = true;
+            this.tabPageReview.Click += new System.EventHandler(this.tabPageReview_Click);
             // 
             // lReviewPosition
             // 
@@ -441,6 +444,16 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Dictionary:";
             // 
+            // btnGetSynonymsAndAntonyms
+            // 
+            this.btnGetSynonymsAndAntonyms.Location = new System.Drawing.Point(495, 184);
+            this.btnGetSynonymsAndAntonyms.Name = "btnGetSynonymsAndAntonyms";
+            this.btnGetSynonymsAndAntonyms.Size = new System.Drawing.Size(153, 23);
+            this.btnGetSynonymsAndAntonyms.TabIndex = 15;
+            this.btnGetSynonymsAndAntonyms.Text = "Synonyms and Antonyms";
+            this.btnGetSynonymsAndAntonyms.UseVisualStyleBackColor = true;
+            this.btnGetSynonymsAndAntonyms.Click += new System.EventHandler(this.btnGetSynonymsAndAntonyms_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -501,6 +514,7 @@
         private System.Windows.Forms.Label lReviewPosition;
         private System.Windows.Forms.Button btnReviewNext;
         private System.Windows.Forms.Button btnReviewPrevious;
+        private System.Windows.Forms.Button btnGetSynonymsAndAntonyms;
     }
 }
 
