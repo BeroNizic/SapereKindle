@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -38,10 +39,7 @@ namespace SapereKindle
             cmbxDictionaries.SelectedIndex = 0;
             cmbxReviewDictionary.DataSource = dictionaries;
             cmbxReviewDictionary.SelectedIndex = 0;
-            for (int i = 0; i < 10; i++)
-                GetNextReviewItem();
-            _currentReviewIndex = 0;
-            RefreshReviewPosition();
+            GetNItems();
         }
 
         private void btnImportKindleMate_Click(object sender, EventArgs e)
@@ -77,17 +75,42 @@ namespace SapereKindle
             ClearReviewTranslation();
         }
 
+        private void GetNItems()
+        {            
+            _reviewItems.Clear();
+            for (int i = 0; i < Properties.Settings.Default.NumberOfItems; i++)
+                GetNextReviewItem();
+            _currentReviewIndex = 0;
+            FillReviewWordsTab();
+            RefreshReviewPosition();
+        }
+
         private void GetNextReviewItem()
         {
             var currentDictFile = (TranslationDictionaryFile)cmbxReviewDictionary.SelectedValue;
             var dict = currentDictFile.Dictionary;
-            var itemIndex = _random.Next(0, dict.Translations.Count);
-            var reviewItem = dict.Translations[itemIndex];
+            TranslationItem reviewItem;
+            do {
+                var itemIndex = _random.Next(0, dict.Translations.Count);
+                reviewItem = dict.Translations[itemIndex];
+            } while (_reviewItems.Contains(reviewItem));
             _reviewItems.Add(reviewItem);
             _currentReviewIndex = _reviewItems.Count - 1;
             RefreshReviewPosition();
         }
 
+        private void FillReviewWordsTab()
+        {
+            panelReviewWords.Controls.Clear();
+            int y = 5;
+            foreach(var item in _reviewItems)
+            {
+                var newWord = new WordReviewControl(item.Word.Text, item.Word.GoogleText);
+                newWord.Location = new Point(5, y);
+                panelReviewWords.Controls.Add(newWord);
+                y += newWord.Height;
+            }
+        }
         private void btnReviewNew_Click(object sender, EventArgs e)
         {
             GetNextReviewItem();    
@@ -172,6 +195,41 @@ namespace SapereKindle
         private void tabPageReview_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbxReviewDictionary_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageReviewWords_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageImport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReviewWordsNew_Click(object sender, EventArgs e)
+        {
+            GetNItems();
         }
     }
 }

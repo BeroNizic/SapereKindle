@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageTranslate = new System.Windows.Forms.TabPage();
             this.tabPageReview = new System.Windows.Forms.TabPage();
+            this.btnGetSynonymsAndAntonyms = new System.Windows.Forms.Button();
             this.lReviewPosition = new System.Windows.Forms.Label();
             this.btnReviewNext = new System.Windows.Forms.Button();
             this.btnReviewPrevious = new System.Windows.Forms.Button();
@@ -64,12 +65,17 @@
             this.btnReviewNew = new System.Windows.Forms.Button();
             this.cmbxReviewDictionary = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnGetSynonymsAndAntonyms = new System.Windows.Forms.Button();
+            this.tabPageReviewWords = new System.Windows.Forms.TabPage();
+            this.btnReviewWordsNew = new System.Windows.Forms.Button();
+            this.panelReviewWords = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageImport.SuspendLayout();
             this.tabPageTranslate.SuspendLayout();
             this.tabPageReview.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageReviewWords.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTranslate
@@ -137,6 +143,7 @@
             this.tabControl1.Controls.Add(this.tabPageImport);
             this.tabControl1.Controls.Add(this.tabPageTranslate);
             this.tabControl1.Controls.Add(this.tabPageReview);
+            this.tabControl1.Controls.Add(this.tabPageReviewWords);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -154,11 +161,12 @@
             this.tabPageImport.Controls.Add(this.btnSetKindleMateFile);
             this.tabPageImport.Location = new System.Drawing.Point(4, 24);
             this.tabPageImport.Name = "tabPageImport";
-            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPageImport.Size = new System.Drawing.Size(924, 526);
             this.tabPageImport.TabIndex = 0;
             this.tabPageImport.Text = "Import";
             this.tabPageImport.UseVisualStyleBackColor = true;
+            this.tabPageImport.Click += new System.EventHandler(this.tabPageImport_Click);
             // 
             // cmbxDictionaries
             // 
@@ -195,7 +203,7 @@
             this.tabPageTranslate.Controls.Add(this.tbOutput2);
             this.tabPageTranslate.Location = new System.Drawing.Point(4, 24);
             this.tabPageTranslate.Name = "tabPageTranslate";
-            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPageTranslate.Size = new System.Drawing.Size(924, 526);
             this.tabPageTranslate.TabIndex = 1;
             this.tabPageTranslate.Text = "Translate";
@@ -225,6 +233,16 @@
             this.tabPageReview.Text = "Review";
             this.tabPageReview.UseVisualStyleBackColor = true;
             this.tabPageReview.Click += new System.EventHandler(this.tabPageReview_Click);
+            // 
+            // btnGetSynonymsAndAntonyms
+            // 
+            this.btnGetSynonymsAndAntonyms.Location = new System.Drawing.Point(495, 184);
+            this.btnGetSynonymsAndAntonyms.Name = "btnGetSynonymsAndAntonyms";
+            this.btnGetSynonymsAndAntonyms.Size = new System.Drawing.Size(153, 23);
+            this.btnGetSynonymsAndAntonyms.TabIndex = 15;
+            this.btnGetSynonymsAndAntonyms.Text = "Synonyms and Antonyms";
+            this.btnGetSynonymsAndAntonyms.UseVisualStyleBackColor = true;
+            this.btnGetSynonymsAndAntonyms.Click += new System.EventHandler(this.btnGetSynonymsAndAntonyms_Click);
             // 
             // lReviewPosition
             // 
@@ -434,6 +452,7 @@
             this.cmbxReviewDictionary.Name = "cmbxReviewDictionary";
             this.cmbxReviewDictionary.Size = new System.Drawing.Size(373, 23);
             this.cmbxReviewDictionary.TabIndex = 1;
+            this.cmbxReviewDictionary.SelectedIndexChanged += new System.EventHandler(this.cmbxReviewDictionary_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -443,16 +462,63 @@
             this.label3.Size = new System.Drawing.Size(64, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Dictionary:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // btnGetSynonymsAndAntonyms
+            // tabPageReviewWords
             // 
-            this.btnGetSynonymsAndAntonyms.Location = new System.Drawing.Point(495, 184);
-            this.btnGetSynonymsAndAntonyms.Name = "btnGetSynonymsAndAntonyms";
-            this.btnGetSynonymsAndAntonyms.Size = new System.Drawing.Size(153, 23);
-            this.btnGetSynonymsAndAntonyms.TabIndex = 15;
-            this.btnGetSynonymsAndAntonyms.Text = "Synonyms and Antonyms";
-            this.btnGetSynonymsAndAntonyms.UseVisualStyleBackColor = true;
-            this.btnGetSynonymsAndAntonyms.Click += new System.EventHandler(this.btnGetSynonymsAndAntonyms_Click);
+            this.tabPageReviewWords.Controls.Add(this.btnReviewWordsNew);
+            this.tabPageReviewWords.Controls.Add(this.panelReviewWords);
+            this.tabPageReviewWords.Controls.Add(this.comboBox2);
+            this.tabPageReviewWords.Controls.Add(this.label11);
+            this.tabPageReviewWords.Location = new System.Drawing.Point(4, 24);
+            this.tabPageReviewWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageReviewWords.Name = "tabPageReviewWords";
+            this.tabPageReviewWords.Size = new System.Drawing.Size(924, 526);
+            this.tabPageReviewWords.TabIndex = 3;
+            this.tabPageReviewWords.Text = "Review Words";
+            this.tabPageReviewWords.UseVisualStyleBackColor = true;
+            this.tabPageReviewWords.Click += new System.EventHandler(this.tabPageReviewWords_Click);
+            // 
+            // btnReviewWordsNew
+            // 
+            this.btnReviewWordsNew.Location = new System.Drawing.Point(489, 10);
+            this.btnReviewWordsNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReviewWordsNew.Name = "btnReviewWordsNew";
+            this.btnReviewWordsNew.Size = new System.Drawing.Size(82, 22);
+            this.btnReviewWordsNew.TabIndex = 5;
+            this.btnReviewWordsNew.Text = "New";
+            this.btnReviewWordsNew.UseVisualStyleBackColor = true;
+            this.btnReviewWordsNew.Click += new System.EventHandler(this.btnReviewWordsNew_Click);
+            // 
+            // panelReviewWords
+            // 
+            this.panelReviewWords.AutoScroll = true;
+            this.panelReviewWords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelReviewWords.Location = new System.Drawing.Point(16, 48);
+            this.panelReviewWords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelReviewWords.Name = "panelReviewWords";
+            this.panelReviewWords.Size = new System.Drawing.Size(897, 468);
+            this.panelReviewWords.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(91, 10);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(373, 23);
+            this.comboBox2.TabIndex = 3;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 15);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Dictionary:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // Form1
             // 
@@ -472,6 +538,8 @@
             this.tabPageReview.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageReviewWords.ResumeLayout(false);
+            this.tabPageReviewWords.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -515,6 +583,11 @@
         private System.Windows.Forms.Button btnReviewNext;
         private System.Windows.Forms.Button btnReviewPrevious;
         private System.Windows.Forms.Button btnGetSynonymsAndAntonyms;
+        private System.Windows.Forms.TabPage tabPageReviewWords;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Panel panelReviewWords;
+        private System.Windows.Forms.Button btnReviewWordsNew;
     }
 }
 
