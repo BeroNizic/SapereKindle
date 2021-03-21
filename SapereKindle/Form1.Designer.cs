@@ -70,12 +70,19 @@
             this.panelReviewWords = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.tabPageExperiments = new System.Windows.Forms.TabPage();
+            this.rtbExperimentsTranslation = new System.Windows.Forms.RichTextBox();
+            this.btnExperimentsGetTranslation = new System.Windows.Forms.Button();
+            this.tbExperimentsWord = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnImportAnki = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageImport.SuspendLayout();
             this.tabPageTranslate.SuspendLayout();
             this.tabPageReview.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageReviewWords.SuspendLayout();
+            this.tabPageExperiments.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTranslate
@@ -144,6 +151,7 @@
             this.tabControl1.Controls.Add(this.tabPageTranslate);
             this.tabControl1.Controls.Add(this.tabPageReview);
             this.tabControl1.Controls.Add(this.tabPageReviewWords);
+            this.tabControl1.Controls.Add(this.tabPageExperiments);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -161,7 +169,7 @@
             this.tabPageImport.Controls.Add(this.btnSetKindleMateFile);
             this.tabPageImport.Location = new System.Drawing.Point(4, 24);
             this.tabPageImport.Name = "tabPageImport";
-            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageImport.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageImport.Size = new System.Drawing.Size(924, 526);
             this.tabPageImport.TabIndex = 0;
             this.tabPageImport.Text = "Import";
@@ -203,7 +211,7 @@
             this.tabPageTranslate.Controls.Add(this.tbOutput2);
             this.tabPageTranslate.Location = new System.Drawing.Point(4, 24);
             this.tabPageTranslate.Name = "tabPageTranslate";
-            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageTranslate.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageTranslate.Size = new System.Drawing.Size(924, 526);
             this.tabPageTranslate.TabIndex = 1;
             this.tabPageTranslate.Text = "Translate";
@@ -520,6 +528,64 @@
             this.label11.Text = "Dictionary:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
+            // tabPageExperiments
+            // 
+            this.tabPageExperiments.Controls.Add(this.btnImportAnki);
+            this.tabPageExperiments.Controls.Add(this.rtbExperimentsTranslation);
+            this.tabPageExperiments.Controls.Add(this.btnExperimentsGetTranslation);
+            this.tabPageExperiments.Controls.Add(this.tbExperimentsWord);
+            this.tabPageExperiments.Controls.Add(this.label12);
+            this.tabPageExperiments.Location = new System.Drawing.Point(4, 24);
+            this.tabPageExperiments.Name = "tabPageExperiments";
+            this.tabPageExperiments.Size = new System.Drawing.Size(924, 526);
+            this.tabPageExperiments.TabIndex = 4;
+            this.tabPageExperiments.Text = "Experiments";
+            this.tabPageExperiments.UseVisualStyleBackColor = true;
+            // 
+            // rtbExperimentsTranslation
+            // 
+            this.rtbExperimentsTranslation.Location = new System.Drawing.Point(20, 79);
+            this.rtbExperimentsTranslation.Name = "rtbExperimentsTranslation";
+            this.rtbExperimentsTranslation.Size = new System.Drawing.Size(883, 430);
+            this.rtbExperimentsTranslation.TabIndex = 3;
+            this.rtbExperimentsTranslation.Text = "";
+            // 
+            // btnExperimentsGetTranslation
+            // 
+            this.btnExperimentsGetTranslation.Location = new System.Drawing.Point(433, 43);
+            this.btnExperimentsGetTranslation.Name = "btnExperimentsGetTranslation";
+            this.btnExperimentsGetTranslation.Size = new System.Drawing.Size(131, 23);
+            this.btnExperimentsGetTranslation.TabIndex = 2;
+            this.btnExperimentsGetTranslation.Text = "Get translation";
+            this.btnExperimentsGetTranslation.UseVisualStyleBackColor = true;
+            this.btnExperimentsGetTranslation.Click += new System.EventHandler(this.btnExperimentsGetTranslation_Click);
+            // 
+            // tbExperimentsWord
+            // 
+            this.tbExperimentsWord.Location = new System.Drawing.Point(17, 43);
+            this.tbExperimentsWord.Name = "tbExperimentsWord";
+            this.tbExperimentsWord.Size = new System.Drawing.Size(379, 23);
+            this.tbExperimentsWord.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 15);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Word:";
+            // 
+            // btnImportAnki
+            // 
+            this.btnImportAnki.Location = new System.Drawing.Point(602, 43);
+            this.btnImportAnki.Name = "btnImportAnki";
+            this.btnImportAnki.Size = new System.Drawing.Size(106, 23);
+            this.btnImportAnki.TabIndex = 4;
+            this.btnImportAnki.Text = "Import anki";
+            this.btnImportAnki.UseVisualStyleBackColor = true;
+            this.btnImportAnki.Click += new System.EventHandler(this.btnImportAnki_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -540,6 +606,8 @@
             this.groupBox1.PerformLayout();
             this.tabPageReviewWords.ResumeLayout(false);
             this.tabPageReviewWords.PerformLayout();
+            this.tabPageExperiments.ResumeLayout(false);
+            this.tabPageExperiments.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -588,6 +656,12 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panelReviewWords;
         private System.Windows.Forms.Button btnReviewWordsNew;
+        private System.Windows.Forms.TabPage tabPageExperiments;
+        private System.Windows.Forms.RichTextBox rtbExperimentsTranslation;
+        private System.Windows.Forms.Button btnExperimentsGetTranslation;
+        private System.Windows.Forms.TextBox tbExperimentsWord;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnImportAnki;
     }
 }
 
